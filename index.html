@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Probó con reiniciar?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div>
+        <h1>¿Probó con reiniciar?</h1>
+    </div>
+
+    <div class="container">
+        <h2>Seleccione la opción correcta:</h2>
+        <select name="opciones" id="opciones">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+        </select>
+        <br><br>
+        <button id="enviar">Enviar</button> <!-- Botón para enviar la selección -->
+        <p id="resultado"></p> <!-- Aquí se mostrará el mensaje con estilos -->
+    </div>
+
+    <script>
+        // Función que maneja la selección cuando se presiona el botón "Enviar"
+        function manejarSeleccion() {
+            const select = document.getElementById("opciones");
+            const resultado = document.getElementById("resultado");
+            const botonEnviar = document.getElementById("enviar");
+
+            // Escuchar el evento de clic en el botón "Enviar"
+            botonEnviar.addEventListener("click", function() {
+                const opcionSeleccionada = select.value;
+
+                // Dependiendo de la opción seleccionada, se muestra un mensaje diferente
+                if (opcionSeleccionada === "si") {
+                    resultado.textContent = "Llame a sistemas";
+                } else if (opcionSeleccionada === "no") {
+                    resultado.textContent = "Reinicie";
+                }
+            });
+        }
+
+        // Llamar a la función al cargar la página
+        manejarSeleccion();
+    </script>
+</body>
+</html>
